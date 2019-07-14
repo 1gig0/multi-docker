@@ -19,10 +19,10 @@ services:
       - /app/node_modules
       - ./server:/app
     environment:
-      - REDIS_HOST=multi-docker-redis.ml4e1f.ng.0001.use2.cache.amazonaws.com
+      - REDIS_HOST=redis
       - REDIS_PORT=6379
       - PGUSER=postgres
-      - PGHOST=multi-docker-postgres.coxdma9t3a9r.us-east-2.rds.amazonaws.com
+      - PGHOST=postgres
       - PGDATABASE=postgres
       - PGPASSWORD=postgres_password
       - PGPORT=5432
@@ -35,7 +35,7 @@ services:
       - ./client:/app
   worker:
     environment:
-      - REDIS_HOST=multi-docker-redis.ml4e1f.ng.0001.use2.cache.amazonaws.com
+      - REDIS_HOST=redis
       - REDIS_PORT=6379
     build:
       dockerfile: Dockerfile.dev
